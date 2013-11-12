@@ -1,0 +1,14 @@
+.hero h1{ text-align:center; }
+header, footer{ background:lightGray; }
+header .top-bar-section ul li.active a{
+	color:yellow;
+}
+.category-list li{
+	float:left;
+	margin:0px;
+	margin-left:5px;
+	list-style-type:none;
+}
+.equipment_list_table{
+	width:100%;
+}

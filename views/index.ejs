@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>LASER AngularFire!!!</title>
+    <link rel="stylesheet" href="vendor/foundation/css/normalize.css" />
+    <link href="vendor/foundation/css/foundation.min.css" rel="stylesheet" type="text/css" media="all">
+    <link href="stylesheets/style.css" rel="stylesheet" type="text/css" media="all">
+    <script src="vendor/foundation/js/vendor/custom.modernizr.js"></script>
+  </head>
+  <body>
+
+    <header>
+      <div class='row hero'>
+        <div class='large-12 large-centered columns'>
+          <h1>Planet <%= title %></h1>
+        </div>
+      </div>
+      <div class="sticky">
+        <nav class="top-bar">
+          <ul class="title-area">
+            <li class="name"><h1><a href="#">LASER</a></h1></li>
+          </ul>
+          <section class="top-bar-section">
+            <ul class="right">
+              <li><a href="#">Overview</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Checkout</a></li>
+              <li class="divider"></li>
+              <li class="active"><a href="#">Equipment</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Users</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Feed</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Settings</a></li>
+            </ul>
+          </section>
+        </nav>
+      </div>
+    </header>
+
+    <section class="main row" ng-app="LASER">
+
+      <div id="main-content" class='large-12 columns'>
+        <h3>App starts here.</h3>
+      </div>
+
+      <div class="large-12 columns" ng-controller="CategoryCtrl">
+        <ul class='category-list'>
+          <li ng-repeat="category in categories">
+              <input type="radio" />{{category.name}}
+          </li>
+      </div>
+      <div ng-controller="EquipmentCtrl">
+        <div class="large-6 columns">
+            <label for="equipSearch">Search
+              <input ng-model="search.name" type="text" placeholder="Equipment Name">
+          </label>
+        </div>
+        <div class="large-2 columns">
+          <label for="numToDisplay">Number of Results
+            <input id="numToDisplay" ng-model="equipLimit" type='text'>
+          </label>
+        </div>
+        <div class="large-2 columns">
+            Something Else
+        </div>
+        <div class="large-2 columns">
+            Something Else
+        </div>
+        <div class="large-12 columns">
+          <table class="equipment_list_table">
+            <thead>
+              <tr>
+                <th>Name</th><th>Bar Code</th><th>Serial Number</th><th>Quantity</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="item in equipment | filter:search | orderBy:'barcode' | limitTo:equipLimit track by $index">
+                <td>{{item.name | uppercase}}</td>
+                <td>{{item.barcode}}</td>
+                <td>{{item.serial}}</td>
+                <td>{{item.quantity}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class='row'>
+        <div class='large-3 columns'>LASER</div>
+        <div class='large-3 columns'>A RedRng Production</div>
+        <div class='large-3 columns'>Angular for the Client</div>
+        <div class='large-3 columns'>Node and Firebase for the Server</div>
+      </div>
+    </footer>
+    <script type='text/javascript' src='https://cdn.firebase.com/v0/firebase-simple-login.js'></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.5/angular.min.js"></script>
+    <script src="//cdn.firebase.com/v0/firebase.js"></script>
+    <script src="//cdn.firebase.com/libs/angularfire/0.3.0/angularfire.min.js"></script>
+    <script src="javascripts/app/app.js"></script>
+
+    <script>
+      document.write('<script src=' +
+      ('__proto__' in {} ? 'vendor/foundation/js/vendor/zepto' : 'vendor/foundation/js/vendor/jquery') +
+      '.js><\/script>');
+    </script>
+    <script src="vendor/foundation/js/foundation/foundation.js"></script>
+    <script src="vendor/foundation/js/foundation/foundation.alerts.js"></script>
+    <script src="vendor/foundation/js/foundation/foundation.clearing.js"></script>
+    <script src="vendor/foundation/js/foundation/foundation.cookie.js"></script>
+    <script src="vendor/foundation/js/foundation/foundation.dropdown.js"></script>
+    <script src="vendor/foundation/js/foundation/foundation.forms.js"></script>
+    <script src="vendor/foundation/js/foundation/foundation.joyride.js"></script>
+    <script src="vendor/foundation/js/foundation/foundation.magellan.js"></script>
+    <script src="vendor/foundation/js/foundation/foundation.orbit.js"></script>
+    <script src="vendor/foundation/js/foundation/foundation.placeholder.js"></script>
+    <script src="vendor/foundation/js/foundation/foundation.reveal.js"></script>
+    <script src="vendor/foundation/js/foundation/foundation.section.js"></script>
+    <script src="vendor/foundation/js/foundation/foundation.tooltips.js"></script>
+    <script src="vendor/foundation/js/foundation/foundation.topbar.js"></script>
+    <script src="vendor/foundation/js/foundation/foundation.interchange.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+
+</html>
